@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 :root {
   --text-color: black;
   --bg-url: url(./mathitha/Mobile/BG-L.jpg);
@@ -13,8 +12,6 @@
   --surface-color-hover: rgba(65, 63, 63, 0.444);
   --highlight-color: rgba(72, 71, 71, 0.501);
   --switch-bg-url: url(./mathitha/sun.svg);
-
-
 }
 
 .dark {
@@ -25,10 +22,7 @@
   --surface-color-hover: rgba(81, 80, 80, 0.423);
   --highlight-color: rgba(72, 71, 71, 0.501);
   --switch-bg-url: url(./mathitha/moonstar.svg);
-  
-  
 }
-
 
 body {
   /*
@@ -75,27 +69,29 @@ body * {
   width: 64px;
   margin: auto;
 
-  padding-bottom: 24px 
-  
+  padding-bottom: 24px;
 }
 
 #switch button {
   width: 32px;
   height: 32px;
   background: rgb(255, 255, 255) var(--switch-bg-url) no-repeat center;
-  border: 1px solid ;
+  border: 1px solid;
   border-radius: 50%;
   position: absolute;
   top: 57%;
   left: 0;
   z-index: 1;
   transform: translateY(-100%);
-  
+  animation: slide-back 0.3s;
 }
 
 .dark #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.3s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -169,12 +165,30 @@ footer {
   font-size: 14px;
 }
 
-@media(min-width: 700px) {
+@media (min-width: 700px) {
   :root {
-    --bg-url: url(./mathitha/mobile/BG-L.jpg);
+    --bg-url: url(./mathitha/Mobile/Desktop/desktopL.jpg);
   }
 
   .dark {
-    --bg-url: url(./mathitha/mobile/Background.jpg);
+    --bg-url: url(./mathitha/Mobile/Desktop/desktopD.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
